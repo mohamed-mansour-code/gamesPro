@@ -34,7 +34,10 @@
                             </div>
 
                             <div class="col-12">
-                                <button [disabled]="loginForm.invalid" class="btn btn-primary w-100 py-2">Login</button>
+                                <button [disabled]="loginForm.invalid" class="btn btn-primary w-100 py-2">
+                                    <i *ngIf="isLoad" class="fas fa-spinner fa-spin text-white me-1"></i>    
+                                    <span>Login</span>
+                                </button>
                                 <p class="alert alert-danger p-1 m-0 my-1" *ngIf="ErrorMessage">{{ErrorMessage}}</p>
                             </div>
                             <div class="col-12">

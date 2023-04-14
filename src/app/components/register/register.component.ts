@@ -14,6 +14,7 @@ export class RegisterComponent {
 
 
   ErrorMessage!:string;
+  isLoad:boolean = false;
   sub:Subscription = new Subscription();
 
   constructor(private _AuthService:AuthService , private _Router:Router){}
@@ -28,14 +29,16 @@ export class RegisterComponent {
 
 
   submit(registerForm:FormGroup){
-
+    this.isLoad = true;
     this.sub.add(
       this._AuthService.signUp(registerForm.value).subscribe({
         next:(response)=>{
           if(response.message == 'success'){
             this._Router.navigate(['/form/Login']);
+            this.isLoad = false;
           }else{
             this.ErrorMessage = response.message;
+            this.isLoad = false;
           } 
         }
       })

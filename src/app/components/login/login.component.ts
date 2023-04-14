@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
 export class LoginComponent {
 
   ErrorMessage!:string;
+  isLoad:boolean = false;
   sub:Subscription = new Subscription();
 
   constructor(private _AuthService:AuthService , private _Router:Router){}
@@ -24,7 +25,7 @@ export class LoginComponent {
 
 
   submit(loginForm:FormGroup){
-
+    this.isLoad = true;
     this.sub.add(
       this._AuthService.signIn(loginForm.value).subscribe({
         next:(response)=>{
@@ -32,8 +33,10 @@ export class LoginComponent {
             this._Router.navigate(['/Home']);
             localStorage.setItem('MoviesToken' , response.token);
             this._AuthService.getToken();
+            this.isLoad = false;
           }else{
             this.ErrorMessage = response.message;
+            this.isLoad = false;
           }
           
         }
