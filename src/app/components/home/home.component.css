@@ -1,0 +1,29 @@
+section{
+    margin-top: 72px;
+}
+.box{
+    background-image: url('../../../assets/image/paladins.b44d33d6e7ee1ba8.png');
+    background-size: 100%;
+    background-position: center;
+    text-align: center;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.layer{
+    background-color: rgba(0, 0, 0, .3);
+}
+.card-text{
+    font-size: 12px;
+    line-height: 12px;
+}
+.btn{
+    transition: .3s 0s all linear;
+}
+.btn:hover{
+    background-color: #6c757d;
+    color: white !important;
+    border-color: #6c757d !important;
+}
+.card{
+    cursor: pointer;
+}

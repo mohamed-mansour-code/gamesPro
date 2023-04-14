@@ -1,0 +1,74 @@
+<section class="vh-100 bg-dark">
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+        <div class="row g-0">
+            <div class="col-lg-6">
+                <div class="image">
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="box text-center p-4 py-5">
+                    <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm)">
+                        <h3 class="fs-25 lh-30 text-main fw-500 mb-3">Create My Account!</h3>
+                        <div class="row g-3">
+                            <div class="col-md-6 position-relative">
+                                <input type="text" [ngClass]="{'is-valid':registerForm.get('first_name')?.valid}" formControlName="first_name" class="form-control" placeholder="First Name">
+                                <div *ngIf="registerForm.get('first_name')?.errors && registerForm.get('first_name')?.dirty" class="alert alert-danger position-absolute top-100 p-1">
+                                    <p *ngIf="registerForm.get('first_name')?.getError('required')" class="m-0">first name is required</p>
+                                    <p *ngIf="registerForm.get('first_name')?.getError('pattern')" class="m-0">name not valid</p>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 position-relative">
+                                <input type="text" formControlName="last_name" class="form-control" placeholder="Last Name">
+                                <div *ngIf="registerForm.get('last_name')?.errors && registerForm.get('last_name')?.dirty" class="alert alert-danger position-absolute top-100 p-1">
+                                    <p *ngIf="registerForm.get('last_name')?.getError('required')" class="m-0">last name is required</p>
+                                    <p *ngIf="registerForm.get('last_name')?.getError('pattern')" class="m-0">name not valid</p>
+                                </div>
+
+                            </div>
+                            <div class="col-12 position-relative">
+                                <input type="email" formControlName="email" class="form-control" placeholder="Email Address">
+                                <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.dirty" class="alert alert-danger position-absolute top-100 p-1">
+                                    <p *ngIf="registerForm.get('email')?.getError('required')" class="m-0">email is required</p>
+                                    <p *ngIf="registerForm.get('email')?.getError('pattern')" class="m-0">email not valid</p>
+                                </div>
+
+                            </div>
+                            <div class="col-12 position-relative">
+                                <input type="number" formControlName="age" class="form-control" placeholder="age">
+                                <div *ngIf="registerForm.get('age')?.errors && registerForm.get('age')?.dirty" class="alert alert-danger position-absolute top-100 p-1">
+                                    <p *ngIf="registerForm.get('age')?.getError('required')" class="m-0">age is required</p>
+                                    <p *ngIf="registerForm.get('age')?.getError('pattern')" class="m-0">age not valid</p>
+                                </div>
+
+
+                            </div>
+                            <div class="col-12 position-relative">
+                                <input type="password" formControlName="password" class="form-control" placeholder="password">
+                                <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.dirty" class="alert alert-danger position-absolute top-100 p-1">
+                                    <p *ngIf="registerForm.get('password')?.getError('required')" class="m-0">password is required</p>
+                                    <p *ngIf="registerForm.get('password')?.getError('pattern')" class="m-0">password not valid</p>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+                                <button [disabled]="registerForm.invalid" class="btn btn-primary w-100 py-2">Create Account</button>
+                                <p class="alert alert-danger p-1 m-0 my-1" *ngIf="ErrorMessage">{{ErrorMessage}}</p>
+                            </div>
+                            <div class="col-12">
+                                <p class="text-p fs-15 fw-400">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+                                <hr class="text-p"/>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span class="text-p">Already a member? </span>
+                                    <a class="text-primary ms-2" routerLink="/Login">Log In ></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,11 @@
+.badge-genre{
+    padding: 1px 5px !important;
+    font-size: 14px !important;
+    font-size: 700;
+}
+.card{
+    transition: .3s 0s transform linear;
+}
+.card:hover{
+    transform: scale(1.02) !important;
+}

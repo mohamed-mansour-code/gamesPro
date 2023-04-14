@@ -1,0 +1,19 @@
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" *ngFor="let el of dataAppear ; trackBy:track">
+                <app-card [routerLink]="['/Details',el.id]" class="cart" [img]="el.thumbnail" [cardTitle]="el.title" [cardDesc]="el.short_description" [cardCategories]="el.genre" [cardPlatform]="el.platform"></app-card>
+            </div>
+            <ng-container *ngIf="!dataAppear">
+                <div class="col-md-6 col-lg-3" *ngFor="let el of [1,2,3,4,5,6,7,8]">
+                    <div class="box">
+                        <app-card-load></app-card-load>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div *ngIf="dataAppear && dataSort.length !== dataAppear.length" class="text-center my-4">
+            <button (click)="more()" class="btn btn-primary">More Games ></button>
+        </div>
+    </div>
+</section>

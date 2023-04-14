@@ -1,0 +1,78 @@
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="image">
+                    <div class="items position-relative" (mouseenter)="enter()" (mouseleave)="leave()">
+                        <img class="w-100" [lazyLoad]="dataDetails?.thumbnail" alt="">
+                        <video [src]="dataDetails?.thumbnail.replace('thumbnail.jpg','videoplayback.webm')" class="position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 d-none" #videoPlayer #video>
+                        </video>
+                    </div>
+                    <div class="my-4 d-flex gap-2 ">
+                        <button class="btn bg-p text-white border-0 flex-shrink-0">Free</button>
+                        <a href="{{dataDetails?.game_url}}" target="_blank" class="btn btn-primary flex-grow-1 fw-bolder">Play Now <i class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8 text-main">
+                <div class="box">
+                    <h3 class="fs-40 lh-45 fw-500">{{dataDetails?.title}}</h3>
+                    <p class="fs-20 lh-30 fw-400">{{dataDetails?.description}}</p>
+                    <h4 class="fs-20 lh-25 fw-500 my-4" *ngIf="dataDetails?.minimum_system_requirements">Minimum System Requirements</h4>
+                    <p *ngIf="dataDetails?.minimum_system_requirements?.graphics && !(dataDetails?.minimum_system_requirements?.graphics == '?')" class="lh-25 fw-400"><span class="fw-700">graphics :</span> {{dataDetails?.minimum_system_requirements?.graphics}}</p>
+                    <p *ngIf="dataDetails?.minimum_system_requirements?.memory && !(dataDetails?.minimum_system_requirements?.memory == '?')" class="lh-25 fw-400"><span class="fw-700">memory :</span> {{dataDetails?.minimum_system_requirements?.memory}}</p>
+                    <p *ngIf="dataDetails?.minimum_system_requirements?.os && !(dataDetails?.minimum_system_requirements?.os == '?')" class="lh-25 fw-400"><span class="fw-700">os :</span> {{dataDetails?.minimum_system_requirements?.os}}</p>
+                    <p *ngIf="dataDetails?.minimum_system_requirements?.processor && !(dataDetails?.minimum_system_requirements?.processor == '?')" class="lh-25 fw-400"><span class="fw-700">processor :</span> {{dataDetails?.minimum_system_requirements?.processor}}</p>
+                    <p *ngIf="dataDetails?.minimum_system_requirements?.storage && !(dataDetails?.minimum_system_requirements?.storage == '?')" class="lh-25 fw-400"><span class="fw-700">storage :</span> {{dataDetails?.minimum_system_requirements?.storage}}</p>
+                    <h4 class="fs-25 lh-30 fw-500 mt-5">Overwatch 2 Screenshots</h4>
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-template carouselSlide *ngFor="let imgSrc of dataDetails?.screenshots"><img class="w-100" [src]="imgSrc.image" alt=""></ng-template>  
+                    </owl-carousel-o>
+
+                    <h4 class="fs-25 lh-30 fw-500 mt-4 mb-3">Additional Information</h4>
+                    <div class="row">
+                        <div class="col-6 col-md-4">
+                            <div class="items">
+                                <h5 class="lh-25 fw-400 text-p">Title</h5>
+                                <p class="lh-25 fw-400 text-main">{{dataDetails?.title}}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="items">
+                                <h5 class="lh-25 fw-400 text-p">Developer</h5>
+                                <p class="lh-25 fw-400 text-main">{{dataDetails?.developer}}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="items">
+                                <h5 class="lh-25 fw-400 text-p">Publisher</h5>
+                                <p class="lh-25 fw-400 text-main">{{dataDetails?.publisher}}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="items">
+                                <h5 class="lh-25 fw-400 text-p">Release Date</h5>
+                                <p class="lh-25 fw-400 text-main">{{dataDetails?.release_date}}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="items">
+                                <h5 class="lh-25 fw-400 text-p">Genre</h5>
+                                <p class="lh-25 fw-400 text-main">{{dataDetails?.genre}}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="items">
+                                <h5 class="lh-25 fw-400 text-p">Platform</h5>
+                                <p class="lh-25 fw-400 text-main">{{dataDetails?.platform}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

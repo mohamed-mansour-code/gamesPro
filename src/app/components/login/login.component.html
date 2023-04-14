@@ -1,0 +1,53 @@
+<section class="vh-100 bg-dark">
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+        <div class="row g-0">
+            <div class="col-lg-6">
+                <div class="image">
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="box text-center p-4 py-5">
+                    <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
+                        <div class="text-center">
+                            <img class="logo" src="./assets/image/logo.png" alt="">
+                        </div>
+                        <h3 class="fs-25 lh-30 text-main fw-500 mb-3">Create My Account!</h3>
+                        <div class="row g-3">
+
+                            <div class="col-12">
+                                <input type="email" formControlName="email" class="form-control" placeholder="Email Address">
+                                <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.dirty" class="alert alert-danger p-1">
+                                    <p *ngIf="loginForm.get('email')?.getError('required')" class="m-0">email is required</p>
+                                    <p *ngIf="loginForm.get('email')?.getError('pattern')" class="m-0">email not valid</p>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+                                <input type="password" formControlName="password" class="form-control" placeholder="password">
+                                <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.dirty" class="alert alert-danger p-1">
+                                    <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0">password is required</p>
+                                    <p *ngIf="loginForm.get('password')?.getError('pattern')" class="m-0">password not valid</p>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+                                <button [disabled]="loginForm.invalid" class="btn btn-primary w-100 py-2">Login</button>
+                                <p class="alert alert-danger p-1 m-0 my-1" *ngIf="ErrorMessage">{{ErrorMessage}}</p>
+                            </div>
+                            <div class="col-12">
+                                <hr class="text-p"/>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <span class="text-p">Not a member yet? </span>
+                                    <a class="text-primary ms-2" routerLink="/form/Register">Create Account ></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

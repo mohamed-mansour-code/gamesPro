@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-1">
+        <div class="logo">
+          <img class="w-100" src="./assets/image/logo.png" alt="">
+        </div>
+        <span>Game Over</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li *ngIf="islogin" class="nav-item">
+            <a class="nav-link active" routerLink="/Home">Home</a>
+          </li>
+          <li *ngIf="islogin" class="nav-item">
+            <a class="nav-link" routerLink="/All">All</a>
+          </li>
+          <li *ngIf="islogin" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Platforms
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/Platforms' , 'pc']">pc</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Platforms' , 'browser']">browser</a></li>
+            </ul>
+          </li>
+          <li *ngIf="islogin" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              sort-by
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/Sort-by' , 'release-date']">release-date</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Sort-by' , 'popularity']">popularity</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Sort-by' , 'alphabetical']">alphabetical</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Sort-by' , 'relevance']">relevance</a></li>
+            </ul>
+          </li>
+          <li *ngIf="islogin" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories 
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'racing']">racing</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'sports']">sports</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'social']">social</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'shooter']">shooter</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'open-world']">open-world</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'zombie']">zombie</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'fantasy']">fantasy</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'action-rpg']">action-rpg</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'action']">action</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'flight']">flight</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/Categories' , 'battle-royale']">battle-royale</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav gap-2 ms-auto mb-2 mb-lg-0">
+          <li *ngIf="islogin" class="nav-item">
+            <a class="nav-link btn border-primary text-primary px-3 py-2" (click)="logOut()">Log Out</a>
+          </li>
+          <li *ngIf="!islogin" class="nav-item">
+            <a class="nav-link" routerLink="Login">Log in</a>
+          </li>
+          <li *ngIf="!islogin" class="nav-item">
+            <a routerLink="Register" class="nav-link btn border-primary text-primary px-3 py-2">Join free</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
